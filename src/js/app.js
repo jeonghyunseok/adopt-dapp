@@ -3,7 +3,7 @@ App = {
   contracts: {},
 	
   init: function() {
-    $.getJSON('../real-estate.json', function(data) {
+    $.getJSON('../pet.json', function(data) {
       var list = $('#list');
       var template = $('#template');
 
@@ -34,14 +34,14 @@ App = {
   },
 
   initContract: function() {
-	  $.getJSON('RealEstate.json', function(data) {
-      App.contracts.RealEstate = TruffleContract(data);
-      App.contracts.RealEstate.setProvider(App.web3Provider);
+	  $.getJSON('AdoptPet.json', function(data) {
+      App.contracts.AdoptPet = TruffleContract(data);
+      App.contracts.AdoptPet.setProvider(App.web3Provider);
       App.listenToEvents();
     });
   },
 
-  buyRealEstate: function() {	
+  buyAdoptPet: function() {	
     var id = $('#id').val();
     var name = $('#name').val();
     var price = $('#price').val();
@@ -53,9 +53,10 @@ App = {
       }
 
       var account = accounts[0];
-      App.contracts.RealEstate.deployed().then(function(instance) {
+      App.contracts.AdoptPet.deployed().then(function(instance) {
         var nameUtf8Encoded = utf8.encode(name);
-        return instance.buyRealEstate(id, web3.toHex(nameUtf8Encoded), email, { from: account, value: price });
+        var emailUtf8Encoded = utf8.encode(email);
+        return instance.buyAdoptPet(id, web3.toHex(nameUtf8Encoded),  web3.toHex(emailUtf8Encoded), { from: account, value: price });
       }).then(function() {
         $('#name').val('');
         $('#email').val('');
@@ -66,28 +67,16 @@ App = {
     });
   },
 
-  loadRealEstates: function() {
-    App.contracts.RealEstate.deployed().then(function(instance) {
+  loadAdoptPets: function() {
+    App.contracts.AdoptPet.deployed().then(function(instance) {
       return instance.getAllBuyers.call();
     }).then(function(buyers) {
       for (i = 0; i < buyers.length; i++) {
         if (buyers[i] !== '0x0000000000000000000000000000000000000000') {
-          var imgType = $('.panel-realEstate').eq(i).find('img').attr('src').substr(7);
-          $('.panel-realEstate').eq(i).find('img').attr('src', 'images/animal/success.png')
-          // switch(imgType) {
-          //   case 'apartment.jpg':
-          //     $('.panel-realEstate').eq(i).find('img').attr('src', 'images/apartment_sold.jpg')
-          //     break;
-          //   case 'townhouse.jpg':
-          //     $('.panel-realEstate').eq(i).find('img').attr('src', 'images/townhouse_sold.jpg')
-          //     break;
-          //   case 'house.jpg':
-          //     $('.panel-realEstate').eq(i).find('img').attr('src', 'images/house_sold.jpg')
-          //     break;
-          // }
-
-          $('.panel-realEstate').eq(i).find('.btn-buy').text('분양').attr('disabled', true);
-          $('.panel-realEstate').eq(i).find('.btn-buyerInfo').removeAttr('style');
+          var imgType = $('.panel-adoptpet').eq(i).find('img').attr('src').substr(7);
+          $('.panel-adoptpet').eq(i).find('img').attr('src', 'images/animal/success.png')
+          $('.panel-adoptpet').eq(i).find('.btn-buy').text('분양').attr('disabled', true);
+          $('.panel-adoptpet').eq(i).find('.btn-buyerInfo').removeAttr('style');
         }
       }
     }).catch(function(err) {
@@ -96,14 +85,14 @@ App = {
   },
 	
   listenToEvents: function() {
-	  App.contracts.RealEstate.deployed().then(function(instance) {
-      instance.LogBuyRealEstate({}, { fromBlock: 0, toBlock: 'latest' }).watch(function(error, event) {
+	  App.contracts.AdoptPet.deployed().then(function(instance) {
+      instance.LogBuyAdoptPet({}, { fromBlock: 0, toBlock: 'latest' }).watch(function(error, event) {
         if (!error) {
-          $('#events').append('<p>' + event.args._buyer + ' 계정에서 ' + event.args._id + ' 번 동물을 분양했습니다.' + '</p>');
+          $('#events').append('<li class="list-group-item"> <span class="glyphicon glyphicon-pencil" style="margin-right:1em"></span>' + event.args._buyer + ' 계정에서 ' + event.args._id + ' 번 동물을 분양했습니다.' + '</li>');
         } else {
           console.error(error);
         }
-        App.loadRealEstates();
+        App.loadAdoptPets();
       })
     })
   }
@@ -125,12 +114,12 @@ $(function() {
   $('#buyerInfoModal').on('show.bs.modal', function(e) {
     var id = $(e.relatedTarget).parent().find('.id').text();
    
-    App.contracts.RealEstate.deployed().then(function(instance) {
+    App.contracts.AdoptPet.deployed().then(function(instance) {
       return instance.getBuyerInfo.call(id);
     }).then(function(buyerInfo) {
       $(e.currentTarget).find('#buyerAddress').text(buyerInfo[0]);
       $(e.currentTarget).find('#buyerName').text(web3.toUtf8(buyerInfo[1]));
-      $(e.currentTarget).find('#buyerEmail').text(buyerInfo[2]);
+      $(e.currentTarget).find('#buyerEmail').text(web3.toUtf8(buyerInfo[2]));
     }).catch(function(err) {
       console.log(err.message);
     })

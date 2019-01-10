@@ -9,6 +9,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link type="text/css" href="./css/jquery-confirm.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="shortcut icon" href="./images/favicon.ico" />
     <!-- 리액트 부트스트랩 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -18,32 +19,54 @@
    <!-- css 화면 -->
    <link type="text/css" href="./css/index.css" rel="stylesheet" />
    <link type="text/css" href="./css/banner.css" rel="stylesheet" />
+   <link type="text/css" href="./css/menu.css" rel="stylesheet" />
   </head>
- <script>
- 
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
+<script type="text/javascript">
+$(function(){
+  $('.navbar-metamask').click(function(){
+    window.open("https://metamask.io/");
+  });
+});
 
- </script>
+
+</script>
+
+
+
   <body>
     <!-- navbar -->
     <div class="navbar">
+        <a id="home"></a>
       <img class="nav-logo" src="./images/whale-project.png" style="margin-right:10%"/>
+     
       <div class="navbar-text navbar-left">
-        <span class="glyphicon glyphicon-menu-hamburger">
-        </span>
+        <!-- <span class="glyphicon glyphicon-menu-hamburger burger" id="burger">
+        </span> -->
+        <div class="burger">
+            <div class="burger__patty"></div>
+            <div class="burger__patty"></div>
+            <div class="burger__patty"></div>
+          </div>
+
       </div>
+
+      
       <div class="navbar-text ">
+
         <div class="start-project navbar-header-text navbar-display">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Show Contract
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="show-contract" href="#contractList">Show Contract</a>
       </div>
       </div>
-      <div class="navbar-text navbar-right navbar-metamask">
-         <div class="sign-in navbar-header-text">
+      <div  class="navbar-text navbar-right navbar-metamask ">
+         <div  class="sign-in navbar-header-text">
           MetaMask  &nbsp;&nbsp;&nbsp;&nbsp;
         </div>
         <!-- <div  class="sign-in navbar-header-text">
           Sign Up
         </div> -->
-          <img class="glyphicon glyphicon-user" src="./images/metamask.png" />
+          <img  class="glyphicon glyphicon-user" src="./images/metamask.png" />
       </div>
     </div>
     <!-- 배너 -->
@@ -123,10 +146,25 @@
     </a>
   </div>
   </div>
+  <a href="#home">
+  <button id="myBtn" style="display: block;">
+      <i class="fa fa-chevron-up" style=" position: fixed;  bottom: 47px;   right: 39px;">
+      </i>
+  </button>
+</a>
   
-    <div class="container">
 
-      <div class="row heading heading-icon">
+
+
+
+
+    <div class="container">
+   
+
+
+
+      <div class="row heading heading-icon pet-list">
+          <a id="petList"></a>
         <div class="title-new-project">- Pet List</div>
       </div>
       
@@ -135,15 +173,31 @@
       </div>
 
       <div class="row heading heading-icon">
+          <a id="contractList"></a>
         <div class="title-new-project">- Contract List</div>
       </div>
+  
       <!-- 계약 정보 -->
+      <ul class="list-group">
+      
       <div id="events"></div>
+   
+    </ul>
+
+      <div class="row heading heading-icon">
+          <a id="howto"></a>
+        <div class="title-new-project">- How to use</div>
+      </div>
+      <img  class="how-to" src="./images/howto.png"/>
+
+      
     </div>   
+    <!-- 푸터 -->
+    <div id="footer">© JEONG HYUN SEOK 2018.</div>
     
     <div id="template" style="display: none;">
       <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="panel panel-success panel-realEstate">
+        <div class="panel panel-success panel-adoptpet">
           <div class="panel-heading">
             <h3 class="panel-title">애완동물</h3>
           </div>
@@ -173,7 +227,19 @@
    
     </div>
  
+    <!-- 메뉴 -->
+<nav class="menu">
+    <div class="menu__brand">
     
+    </div>
+    <ul class="menu__list">
+      <li class="menu__item"><a href="http://whaleteacher.com/" target="_blank" class="menu__link">Jeong's Portfolio</a></li>
+      <li class="menu__item"><a href="/"             class="menu__link">Adopt Project</a></li>
+      <li class="menu__item"><a href="#petList"      class="menu__link link01">Pet List     </a></li>
+      <li class="menu__item"><a href="#contractList" class="menu__link link02">Contract List</a></li>
+      <li class="menu__item"><a href="#howto"        class="menu__link link03">How to use   </a></li>
+    </ul>
+  </nav>
     
     <div class="modal fade" tabindex="-1" role="dialog" id="buyModal">
       <div class="modal-dialog">
@@ -190,7 +256,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-            <button type="button" class="btn btn-primary" onclick="App.buyRealEstate(); return false;">분양하기</button>
+            <button type="button" class="btn btn-primary" onclick="App.buyAdoptPet(); return false;">분양하기</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -225,5 +291,7 @@
     <script src="js/truffle-contract.js"></script>
     <script src="js/app.js"></script>
     <script src="js/utf8.js"></script>
+    
   </body>
+  <script src="js/menu.js"></script>
 </html>

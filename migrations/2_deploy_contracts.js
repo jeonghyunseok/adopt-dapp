@@ -1,5 +1,5 @@
-var RealEstate = artifacts.require("./RealEstate.sol");
+var AdoptPet = artifacts.require("./AdoptPet.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(RealEstate);
+  deployer.deploy(AdoptPet);
 };

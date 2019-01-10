@@ -1,0 +1,207 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  
+  font-family: 'Open Sans';
+  color: black;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.header {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+}
+.burger {
+  position: absolute;
+  z-index: 1000;
+  left: 2%;
+  top: 23px;
+  cursor: pointer;
+  transform: rotateY(0);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.burger__patty {
+  width: 20px;
+    height: 3px;
+    margin: 0 0 3px 0;
+    background: black;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.burger__patty:last-child {
+  margin-bottom: 0;
+}
+.burger--close {
+  transform: rotate(180deg);
+  position: fixed;
+  left: 6%;
+}
+.burger--close .burger__patty:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+.burger--close .burger__patty:nth-child(2) {
+  opacity: 0;
+}
+.burger--close .burger__patty:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -4px);
+}
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+}
+.menu--active {
+  visibility: visible;
+  z-index: 100;
+}
+.menu__brand, .menu__list {
+  display: block;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  height: 100vh;
+  overflow: hidden;
+}
+.menu__list {
+  margin: 0;
+  padding: 0;
+  padding-top: 8%;
+  background: #f5f5f5;
+  list-style-type: none;
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  width: 65%;
+}
+.menu__list--active {
+  transform: translate3d(0, 0, 0);
+}
+.menu__brand {
+  background: #38c5b9;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translate3d(0, 100%, 0);
+  width: 35%;
+  background-image: url("../images/menubanner.png")
+}
+.menu__brand--active {
+  transform: translate3d(0, 0, 0);
+}
+.menu__item {
+  color: black;
+  transform: translate3d(500px, 0, 0);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-left: -10%; 
+  text-decoration: none;
+  text-align: left;
+  margin-bottom: 1em;
+  margin-left: -30em;
+}
+.menu__item--active {
+  transform: translate3d(0, 0, 0);
+}
+.menu__link {
+  display: inline-block;
+  position: relative;
+  font-size: 2.5em;
+
+  padding: 15px 0;
+  font-weight: 300;
+  text-decoration: none !important;
+  color: black !important;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  font-family: 'Merienda', cursive;
+}
+.menu__link:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* left: 50%; */
+  width: 0px;
+  height: 2px;
+  background: black;
+  /* transform: translateX(-50%); */
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.menu__link:hover:before {
+  width: 100%;
+}
+.menu .menu__item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.menu .menu__item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.menu .menu__item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.menu .menu__item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.menu .menu__item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.menu .menu__item:nth-child(6) {
+  transition-delay: 0.6s;
+}
+@media screen and (max-width: 768px) {
+  .menu__brand--active{
+    background-image: url("../images/menubannerside.png");
+  }
+  ul.menu__list, div.menu__brand {
+    float: none;
+    width: 100%;
+    min-height: 0;
+    
+  }
+  ul.menu__list--active, div.menu__brand--active {
+    transform: translate3d(0, 0, 0);
+  
+  }
+  .menu__list {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+  }
+  .menu__link {
+    font-size: 24px;
+  }
+  .menu__brand {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0);
+
+  }
+  .menu__brand .logo {
+    width: 90px;
+    height: 90px;
+  }
+}
+.logo {
+  width: 200px;
+  height: 200px;
+  background: #1a1a1a;
+  border-radius: 50%;
+}
+h1, h2, h3, p {
+  margin: 0;
+  font-weight: 400;
+}
+main {
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding: 8vw;
+}
+main h1 > a {
+  color: black;
+  text-decoration: none;
+  font-size: 48px;
+  font-weight: 300;
+}
+.support {
+  position: fixed;
+  bottom: 24px;
+  color: rgba(0, 0, 0, 0.6);
+}
