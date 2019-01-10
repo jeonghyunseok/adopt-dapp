@@ -1,0 +1,105 @@
+.carousel-indicators-numbers li {
+
+      text-indent: 0;
+      margin: 0 2px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 100%;
+      line-height: 50px;
+      color: #fff;
+      background-color: #999;
+      transition: all 0.25s ease;
+      border:solid 2px white;
+      overflow: hidden;
+
+}
+.carousel-indicators .active {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+   border:solid 2px black;
+}
+.carousel-indicators-numbers li:hover{
+    margin: 0 2px;
+    width: 50px;
+    height: 50px;
+    border:solid 2px black;    
+}
+.indicator-img{
+    top: 0;
+    bottom: 0;
+    width: auto;
+    height: 100%;
+    margin: auto;
+    margin-left: -70px;
+   margin-top: -5px;
+}
+
+
+
+.item img{
+    width: 1600px;
+}
+.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+    right: 10%;
+    margin-right: -10px;
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-next {
+    left: 10%;
+    margin-right: -10px;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 15;
+    width: 75%;
+
+    text-align: right;
+    list-style: none;
+    margin-bottom: 0.5em;
+}
+
+.legend {
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    position: absolute;
+    color: #fff;
+    font-size: 40px;
+    text-align: justify;
+    opacity: 1;
+    background: none;
+    float: left;
+    padding-left: 4%;
+    margin-top: 100px;
+    margin-left: 50px;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    position: absolute;
+    bottom: 5em;
+    left: 50%;
+    margin-left: -45%;
+    width: 90%;
+    border-radius: 10px;
+
+    color: #fff;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.banner-image-title {
+    font-size: 6rem;
+    margin-bottom: -10px;
+    font-family: 'Lobster', cursive;
+}
+.banner-image-content {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: -20px;
+    margin-top: 20px;
+}

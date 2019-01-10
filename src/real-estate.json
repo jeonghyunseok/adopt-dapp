@@ -1,0 +1,87 @@
+[
+  {
+    "id": 0,
+    "type": "강아지",
+    "picture": "images/animal/dog1.png",
+    "name": "가을이",
+    "price": 1.23
+  },
+  {
+    "id": 1,
+    "type": "강아지",
+    "picture": "images/animal/dog2.png",
+    "name": "봄이",
+    "price": 1.56
+  },
+  {
+    "id": 2,
+    "type": "고양이",
+    "picture": "images/animal/cat1.png",
+    "name": "쯔위",
+    "price": 2.74
+  },
+  {
+    "id": 3,
+    "type": "고양이",
+    "picture": "images/animal/cat2.png",
+    "name": "지효",
+    "price": 1.87
+  },
+  {
+    "id": 4,
+    "type": "강아지",
+    "picture": "images/animal/dog3.png",
+    "name": "사나",
+    "price": 1.97
+  },
+  {
+    "id": 5,
+    "type": "고양이",
+    "picture": "images/animal/cat3.png",
+    "name": "모모",
+    "price": 1.77
+  },
+  {
+    "id": 6,
+    "type": "고양이",
+    "picture": "images/animal/cat4.png",
+    "name": "제시카",
+    "price": 2.12
+  },
+  {
+    "id": 7,
+    "type": "고양이",
+    "picture": "images/animal/cat5.png",
+    "name": "알프레도",
+    "price": 0.0001
+  },
+  {
+    "id": 8,
+    "type": "기타",
+    "picture": "images/animal/parrot.jpg",
+    "name": "덩이",
+    "price": 1.32
+  },
+  {
+    "id": 9,
+    "type": "강아지",
+    "picture": "images/animal/dog4.png",
+    "name": "호치",
+    "price": 1.11
+  },
+  {
+    "id": 10,
+    "type": "강아지",
+    "picture": "images/animal/dog5.png",
+    "name": "새초미",
+    "price": 1.11
+  }
+  ,
+  {
+    "id": 11,
+    "type": "강아지",
+    "picture": "images/animal/dog6.png",
+    "name": "드라고",
+    "price": 1.11
+  }
+]

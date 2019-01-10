@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css?family=Merienda:700);
+.App {
+  text-align: center;
+}
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+  margin-right: -15px;
+  margin-left: -15px;
+  text-align: center;
+}
+.nav-top{
+  height: 60px;
+  background: white;
+}
+.navbar{
+  background: white;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 0%;
+}
+.navbar-header {
+  float: none;
+  background: white;
+}
+.nav-logo {
+  float: none;
+  height: 60px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: -3px;
+  cursor: pointer;
+}
+ 
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-color: #e7e7e7;
+ 
+}
+
+.navbar-default .navbar-text {
+  margin-top: -40px;
+  margin-bottom: 15px;
+  float: left;
+  color: #626262;
+  
+}
+.navbar-header-text{
+  float: left;
+  cursor: pointer;
+  font-weight: 500;
+}
+.navbar-left{
+  float: left !important;
+}
+.navbar-header-text:hover{
+  color:#286090
+}
+.glyphicon-menu-hamburger:hover{
+  cursor: pointer;
+  color:#286090
+}
+.none{
+  display:none;
+}
+.block{
+  display: block;
+}
+.search-input{
+  width: 80%;
+    font-size: 20px;
+    border: 0px solid;
+}
+.glyphicon-user{
+  display: none;
+}
+.navbar-right {
+  margin-top: 20px;
+}
+.navbar-left {
+  margin-top: 20px;
+}
+.start-project{
+  margin-top: 5px;
+}
+@media screen and (max-width:990px){
+.banner-carousel{
+  display: none;
+}
+}
+@media screen and (max-width:768px){
+  .navbar-right{
+    float: right !important;
+  
+  }
+.navbar-display{
+  display: none;
+}
+
+.start-project{
+  display: none;
+}
+  .search-text{
+    display: none;
+  }
+  .sign-in{
+    display: none;
+  }
+  .glyphicon-search{
+    display: none;
+  }
+  .glyphicon-user{
+    display: block;
+    cursor: pointer;
+    width: 3rem;
+    margin-right: 1em;
+    margin-top: -5em;
+ 
+  }
+  .glyphicon-user:hover{
+    color:#286090;
+    transform: scale(1.05);
+  }
+}
+
+/* 제목 */
+.heading{
+  margin-top:2.5em;
+  margin-bottom: 0.5em;
+}
+/* 그리드 제목 */
+.title-new-project{
+  font-size: 23px;
+  margin: 25px 0px 25px 25px;
+  float: left;
+  font-weight: 700;
+  font-family: 'Merienda', cursive;
+}
+@media screen and (max-width:250px){
+  .title-new-project{
+      font-size: 15px;
+  }
+ 
+
+}
